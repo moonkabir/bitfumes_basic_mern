@@ -9,9 +9,9 @@ mongoose.connect('mongodb+srv://bitfumes_basic_mern:Moon123$@cluster0.32hdevq.mo
 .catch((err)=> console.log(err));
 
 // First connect to the server and then other work
-await mongoose.connect('mongodb+srv://bitfumes_basic_mern:Moon123$@cluster0.32hdevq.mongodb.net/?retryWrites=true&w=majority')
-.then(()=>console.log("MongoDB Connection is successful"))
-.catch((err)=> console.log(err));
+// await mongoose.connect('mongodb+srv://bitfumes_basic_mern:Moon123$@cluster0.32hdevq.mongodb.net/?retryWrites=true&w=majority')
+// .then(()=>console.log("MongoDB Connection is successful"))
+// .catch((err)=> console.log(err));
 
 
 app.get("/",(req,res)=>{
