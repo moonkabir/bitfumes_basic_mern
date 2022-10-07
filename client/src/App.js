@@ -15,9 +15,13 @@ function App() {
         err.preventDefault();
         const res = await fetch("http://localhost:4000/transaction",{
             method: "POST",
-            body: form,
+            body: JSON.stringify(form),
+            headers: {
+                'Content-Type': 'application/json'
+            }
         });
-        console.log(res);
+        const data = await res.json();
+        console.log(data);
     }
     return (
         <div>
