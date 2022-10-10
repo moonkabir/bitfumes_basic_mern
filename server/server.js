@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from 'mongoose';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import Transaction from './models/Transaction.js';
 const PORT = 4000;
 const app = express();
 app.use(cors());
@@ -15,10 +16,16 @@ app.get("/",(req,res)=>{
     res.send("Hello World");
 });
 
-app.post("/transaction",(req,res)=>{
+app.post("/transaction",async(req,res)=>{
     const {amount,description,date} = req.body;
+    const transaction = new Transaction({
+        amount, 
+        description, 
+        date,
+    });
+    await transaction.save();
     console.log(req.body);
-    res.json({message:"Hello World"});
+    res.json({message:"Successfully created transaction"});
 });
 
 app.listen(PORT, ()=>{
