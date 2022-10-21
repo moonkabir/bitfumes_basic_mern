@@ -40,8 +40,6 @@ export default function TransactionForm({fetchTransactions}) {
             setForm(initialForm);
             fetchTransactions();
         }
-        // const data = await res.json();
-        // console.log(data);
     }
     return (
         <Card sx={{ minWidth: 275, marginTop:10 }}>
