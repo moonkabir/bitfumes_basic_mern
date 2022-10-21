@@ -1,6 +1,8 @@
 import {useEffect,useState} from "react";
 import AppBar from './components/AppBar';
 import TransactionForm from './components/TransactionForm';
+import TransactionsList from "./components/TransactionsList";
+import Container from '@mui/material/Container';
 
 function App() {   
     // const initialForm = {
@@ -47,7 +49,10 @@ function App() {
     return (
         <div>
             <AppBar />
-            <TransactionForm fetchTransactions={fetchTransactions} />
+            <Container>            
+                <TransactionForm fetchTransactions={fetchTransactions} />
+                <TransactionsList transactions = {transactions}/>
+            </Container>
             {/* <form onSubmit={handleSubmit}>
                 <input 
                     name="amount"
@@ -70,7 +75,7 @@ function App() {
                     name="date"/>
                 <button type="submit">Submit</button>
             </form> */}
-            <br/>
+            {/* <br/>
             <section>
                 <table>
                     <thead>
@@ -90,7 +95,7 @@ function App() {
                         ))}                       
                     </tbody>
                 </table>
-            </section>
+            </section> */}
         </div>
     );
 }
