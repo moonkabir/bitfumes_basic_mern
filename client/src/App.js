@@ -3,12 +3,12 @@ import AppBar from './components/AppBar';
 import TransactionForm from './components/TransactionForm';
 
 function App() {   
-    const initialForm = {
-        amount: 0,
-        description:"",
-        date: "",
-    }
-    const [form, setForm] = useState(initialForm);
+    // const initialForm = {
+    //     amount: 0,
+    //     description:"",
+    //     date: "",
+    // }
+    // const [form, setForm] = useState(initialForm);
 
     const [transactions, setTransactions] = useState([])
 
@@ -22,33 +22,33 @@ function App() {
         setTransactions(data); 
     }
 
-    function handleInput(e){
-        console.log(e.target.value);
-        setForm({
-           ...form,[e.target.name]:e.target.value
-        });
-    }
-    async function handleSubmit(err){
-        err.preventDefault();
-        const res = await fetch("http://localhost:4000/transaction",{
-            method: "POST",
-            body: JSON.stringify(form),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        if(res.ok){
-            setForm(initialForm);
-            fetchTransactions();
-        }
-        // const data = await res.json();
-        // console.log(data);
-    }
+    // function handleInput(e){
+    //     console.log(e.target.value);
+    //     setForm({
+    //        ...form,[e.target.name]:e.target.value
+    //     });
+    // }
+    // async function handleSubmit(err){
+    //     err.preventDefault();
+    //     const res = await fetch("http://localhost:4000/transaction",{
+    //         method: "POST",
+    //         body: JSON.stringify(form),
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         }
+    //     });
+    //     if(res.ok){
+    //         setForm(initialForm);
+    //         fetchTransactions();
+    //     }
+    //     // const data = await res.json();
+    //     // console.log(data);
+    // }
     return (
         <div>
             <AppBar />
-            <TransactionForm />
-            <form onSubmit={handleSubmit}>
+            <TransactionForm fetchTransactions={fetchTransactions} />
+            {/* <form onSubmit={handleSubmit}>
                 <input 
                     name="amount"
                     type="number" 
@@ -69,7 +69,7 @@ function App() {
                     onChange={handleInput}
                     name="date"/>
                 <button type="submit">Submit</button>
-            </form>
+            </form> */}
             <br/>
             <section>
                 <table>
