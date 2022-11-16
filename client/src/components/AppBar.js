@@ -24,10 +24,10 @@ export default function ButtonAppBar() {
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             
-          <Link to={`/`}>Expensor</Link>
+          <Link className='text-white' to={`/`}>Expensor</Link>
             
           </Typography>
-          <Link to={`/login`}>Login</Link>
+          <Link className='text-white' to={`/login`}>Login</Link>
 
           {/* <Button color="inherit">Login</Button> */}
         </Toolbar>
